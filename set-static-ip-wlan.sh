@@ -6,7 +6,7 @@
 # sudo IPADDRESS="192.168.1.x" GATEWAY="192.168.1.x" NETMASK="255.255.255.0" /pathtoscript/
 
 # turn off networking
-ifdown eth0
+ifdown wlan0
 
 echo Type IP
 read IPADDRESS
@@ -26,7 +26,7 @@ auto lo
 iface lo inet loopback
 
 auto eth0
-iface eth0 inet static
+iface wlan0 inet static
     address $IPADDRESS
     gateway $GATEWAY
     netmask $SUBNETMASK
@@ -39,4 +39,4 @@ iface default inet dhcp
 __END__
 
 # start networking back up again.
-ifup eth0
+ifup wlan0
